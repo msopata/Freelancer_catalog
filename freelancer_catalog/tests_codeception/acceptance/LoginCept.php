@@ -6,8 +6,8 @@ $I->amOnPage('/home');
 
 $I->seeCurrentUrlEquals('/login');
 
-$I->fillField('email', 'john.doe@gmail.com');
-$I->fillField('password', 'secret123');
+$I->fillField('email', 'johnny.bravo@gmail.com');
+$I->fillField('password', 'nonsecret');
 
 $I->click('#login_button');
 

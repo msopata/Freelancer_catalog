@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75152d89-e197-43c9-a4da-9e3fedb91203" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/freelancer_catalog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/freelancer_catalog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codecept.phar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests_codeception/_data/dump.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tests_codeception/_data/dump.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests_codeception/acceptance/LoginCept.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests_codeception/acceptance/LoginCept.php" afterDir="false" />
-    </list>
+    <list default="true" id="75152d89-e197-43c9-a4da-9e3fedb91203" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +232,7 @@
       <workItem from="1578574146823" duration="948000" />
       <workItem from="1578575463777" duration="1091000" />
       <workItem from="1578576604941" duration="182000" />
-      <workItem from="1578576810752" duration="4710000" />
+      <workItem from="1578576810752" duration="5403000" />
     </task>
     <servers />
   </component>

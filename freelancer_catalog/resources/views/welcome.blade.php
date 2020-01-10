@@ -25,8 +25,8 @@
             }
 
             .flex-center {
-                align-items: center;
                 display: flex;
+            /*    align-items: center; */
                 justify-content: center;
             }
 
@@ -81,19 +81,23 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <h2>Freelancer Offer Catalog</h2>
                 </div>
+                    <div class="">
+                        <h3>Our latest offers: </h3>
+                        <ul>
+                            @foreach ($offers as $offer)
+                                <li>
+                                    <strong>{{$offer->title}}</strong><br>
+                                    <strong>{{$offer->description}}</strong><br>
+                                    salary: <strong>{{$offer->maxSalary}}</strong><br>
+                                    deadline: <strong>{{$offer->deadline}}</strong>
+                                </li>
+                                <br><br>
+                        @endforeach
+                    </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+
             </div>
         </div>
     </body>

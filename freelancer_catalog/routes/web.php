@@ -16,6 +16,3 @@ Route::get('/', 'OfferController@latest');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('/offers', "OfferController");
-

@@ -95,6 +95,9 @@
                                 </li>
                                 <br><br>
                         @endforeach
+                            <div>
+                                <a href="/offers">More offers</a>
+                            </div>
                     </div>
 
 

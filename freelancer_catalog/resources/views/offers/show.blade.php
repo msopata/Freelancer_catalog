@@ -8,7 +8,7 @@
                 <div>
                     Description: {{$offer->description}}
                     <br>
-                    Owner: {{$current->name}}
+                    /* Owner: $offer->owner */
                 </div>
 
 

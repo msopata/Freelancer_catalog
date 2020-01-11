@@ -14,6 +14,6 @@ class Offer extends Model
 
     public function offerusers()
     {
-        return $this->hasOne('App\User');
+        return $this->hasOne('App\User', 'owner', 'id');
     }
 }

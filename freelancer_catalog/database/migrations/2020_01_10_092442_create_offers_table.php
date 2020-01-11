@@ -14,13 +14,10 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->unique();
             $table->string('title');
-            $table->integer('owner');
-<<<<<<< HEAD
+            $table->integer('owner')->unsigned();
             $table->foreign('owner')->references('id')->on('users');
-=======
->>>>>>> b219bd20dd55cef42a4a083d55837d0d8ff0333f
             $table->text('description');
             $table->date('deadline');
             $table->decimal('maxSalary', 8, 2);

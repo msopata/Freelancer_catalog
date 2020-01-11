@@ -8,6 +8,6 @@ class Accounts extends Model
 {
     public function user()
     {
-        return $this->hasMany(Offer::class, 'user');
+        return $this->hasMany(Offer::class, 'owner');
     }
 }

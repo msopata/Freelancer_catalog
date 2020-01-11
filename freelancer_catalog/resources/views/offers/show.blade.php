@@ -6,7 +6,9 @@
             <div class="col-md-8">
                 <h2>{{ $offer->title }} ({{ $offer->deadline }})</h2>
                 <div>
-                    {{$offer->description}}
+                    Description: {{$offer->description}}
+                    <br>
+                    Owner: {{$current->name}}
                 </div>
 
 

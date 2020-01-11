@@ -11,4 +11,9 @@ class Offer extends Model
     {
         return $this->belongsTo(Accounts::class);
     }
+
+    public function offerusers()
+    {
+        return $this->hasOne('App\User');
+    }
 }

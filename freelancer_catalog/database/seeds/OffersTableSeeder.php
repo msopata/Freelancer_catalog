@@ -15,7 +15,7 @@ class OffersTableSeeder extends Seeder
 
         $offer=new Offer();
         $offer->title = 'new webpage';
-        $offer->user = 1;
+        $offer->owner = 1;
         $offer->description = 'help me';
         $offer->deadline = '2020-01-20 13:33:44';
         $offer->maxSalary = 3000;

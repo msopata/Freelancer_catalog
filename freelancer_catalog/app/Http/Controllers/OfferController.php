@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Offer;
+use App\User;
 
 class OfferController extends Controller
 {
@@ -35,13 +36,17 @@ class OfferController extends Controller
 
     public function store(Request $request)
     {
+
         $offer = new Offer();
         $offer->title = $request->title;
+        $offer->owner = auth()->user()->id;
         $offer->description = $request->description;
         $offer->deadline = $request->deadline;
         $offer->maxSalary = $request->maxSalary;
         $offer->save();
-        return redirect()->route('offers.show', $offer );
+
+        $current = User::where('id', $offer->owner)->first();
+        return redirect()->route('offers.show', $current)->withOffer($offer);
     }
 
 

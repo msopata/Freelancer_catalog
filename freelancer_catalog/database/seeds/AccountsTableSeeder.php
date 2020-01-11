@@ -15,7 +15,6 @@ class AccountsTableSeeder extends Seeder
         'name' => 'Johnny Bravo',
         'rate' => 5.0
 
-
         ]);
     }
 }

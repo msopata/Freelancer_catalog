@@ -23,5 +23,12 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('runforest')
 
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Dummy Kowalski',
+            'email' => 'dum.kowal@gmail.com',
+            'password' => bcrypt('dummy123')
+
+        ]);
     }
 }

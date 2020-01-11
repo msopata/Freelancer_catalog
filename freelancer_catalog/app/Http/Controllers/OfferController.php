@@ -43,14 +43,14 @@ class OfferController extends Controller
         $offer->deadline = $request->deadline;
         $offer->maxSalary = $request->maxSalary;
         $offer->save();
-        
+
         return redirect()->route('offers.show', $offer);
     }
 
 
     public function show(Offer $offer)
     {
-        $user = User::find(1);
+        $user = User::find($offer->owner);
         return view('offers.show')->withOffer($offer)->withUser($user);
     }
 

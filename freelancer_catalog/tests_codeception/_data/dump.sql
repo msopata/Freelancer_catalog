@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.28, for Linux (x86_64)
 --
 -- Host: localhost    Database: test
 -- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.19.04.1
+-- Server version	5.7.28-0ubuntu0.19.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -123,7 +123,7 @@ CREATE TABLE `offers` (
 
 LOCK TABLES `offers` WRITE;
 /*!40000 ALTER TABLE `offers` DISABLE KEYS */;
-INSERT INTO `offers` VALUES (1,'new webpage',1,'help me','2020-01-20',3000.00,'2020-01-11 15:43:47','2020-01-11 15:43:47');
+INSERT INTO `offers` VALUES (1,'new webpage',1,'help me','2020-01-20',3000.00,'2020-01-11 20:39:09','2020-01-11 20:39:09');
 /*!40000 ALTER TABLE `offers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +170,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_id_unique` (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +179,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$4ZjFF/5aDdWkwWn88qBXle16YNuK5h0Gzqh9927VVfz/wn3ltzB7O',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$YIgJ17f/CNNNC2CsGCabeu9t53Z1P9ZmWSoD0.551PX0sr0NaF3.m',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$nJyrrYqJ32cBtBJziDGV6uCFGs0jLkwi59noXHh92OLDTNpum0iOK',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$04m1CENtguq.hWhfuahjj.4diW.M4G08Li7HbXP6L.Iw4X5haP6hS',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$B3RwtP3ZUkcb6za7mcxTneHWLXsKM5RAdCo2qUkW/LyMlqhGDtNGG',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -192,4 +192,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-11 17:44:02
+-- Dump completed on 2020-01-11 22:39:22

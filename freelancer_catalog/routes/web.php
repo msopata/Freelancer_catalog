@@ -19,3 +19,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/offers', "OfferController");
 
+Route::resource('/accounts', "AccountsController");

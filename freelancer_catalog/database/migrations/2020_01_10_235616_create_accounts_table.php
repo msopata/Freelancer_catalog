@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOffersTable extends Migration
+class CreateAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('offers', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->integer('user');
-            $table->text('description');
-            $table->date('deadline');
-            $table->decimal('maxSalary', 8, 2);
+            $table->string('name');
+            $table->double('rate');
             $table->timestamps();
         });
 
-
+       // Schema::table('accounts', function (Blueprint $table) {
+        //    $table->foreign('id')
+        //        ->references('user')
+        //        ->on('offers');
+        //});
     }
 
     /**
@@ -33,6 +34,6 @@ class CreateOffersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offers');
+        Schema::dropIfExists('accounts');
     }
 }

@@ -12,7 +12,6 @@ class OfferController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['only' => 'create']);
-        $this->offer = Offer::with('offerusers')->get();
     }
 
     public function latest()
@@ -37,7 +36,6 @@ class OfferController extends Controller
 
     public function store(Request $request)
     {
-
         $offer = new Offer();
         $offer->title = $request->title;
         $offer->owner = auth()->user()->id;
@@ -45,15 +43,15 @@ class OfferController extends Controller
         $offer->deadline = $request->deadline;
         $offer->maxSalary = $request->maxSalary;
         $offer->save();
-
-       // $current = User::where('id', $offer->owner)->first();
+        
         return redirect()->route('offers.show', $offer);
     }
 
 
     public function show(Offer $offer)
     {
-        return view('offers.show')->withOffer($offer);
+        $user = User::find(1);
+        return view('offers.show')->withOffer($offer)->withUser($user);
     }
 
 

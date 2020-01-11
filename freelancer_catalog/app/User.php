@@ -65,7 +65,7 @@ class User extends Authenticatable
 
     public function offers()
     {
-        return $this->hasMany('App\Offer');
+        return $this->hasMany(Offer::class);
     }
 
 

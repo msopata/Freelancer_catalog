@@ -8,8 +8,9 @@
                 <div>
                     Description: {{$offer->description}}
                     <br>
-                    /* Owner: $offer->owner */
+                    Owner: {{$user->name}}
                 </div>
+
 
 
                 <a href="{{ route('offers.edit', $offer) }}">edit</a>

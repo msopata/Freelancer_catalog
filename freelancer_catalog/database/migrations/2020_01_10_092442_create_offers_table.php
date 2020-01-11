@@ -16,7 +16,7 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->integer('user');
+            $table->integer('owner');
             $table->text('description');
             $table->date('deadline');
             $table->decimal('maxSalary', 8, 2);

@@ -83,7 +83,7 @@
                 <div class="title m-b-md">
                     <h2>Freelancer Offer Catalog</h2>
                 </div>
-                    <div class="">
+                    <div>
                         <h3>Our latest offers: </h3>
                         <ul>
                             @foreach ($offers as $offer)
@@ -98,6 +98,7 @@
                             <div>
                                 <a href="/offers">More offers</a>
                             </div>
+                        </ul>
                     </div>
 
 

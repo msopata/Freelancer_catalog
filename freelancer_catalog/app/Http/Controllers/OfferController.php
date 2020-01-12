@@ -44,7 +44,7 @@ class OfferController extends Controller
         $offer->maxSalary = $request->maxSalary;
         $offer->save();
 
-        return redirect()->route('offers.show', $offer);
+        return redirect()->route('profile.index');
     }
 
 

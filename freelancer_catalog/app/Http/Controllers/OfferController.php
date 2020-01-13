@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Offer;
 use App\User;
+use DB;
 
 class OfferController extends Controller
 {
@@ -16,13 +17,13 @@ class OfferController extends Controller
 
     public function latest()
     {
-            $offers =  Offer::all();
+            $offers =  Offer::all()->sortByDesc('id')->take(3);
             return view('welcome')->withOffers( $offers );
     }
 
     public function index()
     {
-        $offers = Offer::all();
+        $offers =  Offer::all()->sortByDesc('id');
 
         return view('offers.index')->withOffers($offers);
     }
@@ -32,7 +33,6 @@ class OfferController extends Controller
     {
         return view('offers.create');
     }
-
 
     public function store(Request $request)
     {

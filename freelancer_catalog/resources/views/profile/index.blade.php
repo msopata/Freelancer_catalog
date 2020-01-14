@@ -18,7 +18,6 @@
                 <div class="panel-body">
                     <br>
                     <h3>Your offers</h3>
-                    <br>
                     <a href="/offers/create" class="btn btn-primary">Add new offer +</a>
                     <table class="table table-striped">
                         <tr>
@@ -47,7 +46,28 @@
             <div class="panel-body"><br>
                 <h3>Assigned offers</h3>
                 <br>
-                <p>No table prepared yet</p>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Salary</th>
+                        <th>Deadline</th>
+                        <th></th>
+                    </tr>
+                    @foreach( $assignments as $assignment )
+                        <tr>
+                            <th>Offer title here: {{$assignment->offer_id}}</th> <!-- $assignment->offer->id not working -->
+                            <th>Offer description here: </th>
+                            <th>{{$assignment->expected_salary}}</th>
+                            <th>{{$assignment->expected_deadline}}</th>
+                            <th> <a href="" class="btn btn-default">Confirm</a><br>
+                            <a href="" class="btn btn-default">Resign</a></th>
+
+                            <!-- To do
+                            Confirm, Resign buttons dependent on assignments status -->
+                        </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>

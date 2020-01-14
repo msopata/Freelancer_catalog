@@ -15,7 +15,7 @@
                         </ul>
                     </div>
                 @endif
-
+                <div>Offer id: </div>
                 <form method="post" action="{{ route('assignments.store') }}">
                     {{ csrf_field() }}
                     Estimated deadline: <input type="date" name="expected_deadline" value="{{ old("expected_deadline") }}">

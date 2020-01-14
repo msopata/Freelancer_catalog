@@ -14,9 +14,11 @@
                     Owner: {{$user->name}}
                 </div>
                 @auth
+                    <a href="{{ route('assignments.create', $offer) }}">Assign</a>
+                <!--
                     <form action="/assignments">
                     <input type="submit" value="Assign">
-                    </form>
+                    </form> -->
                 @endauth
 
 

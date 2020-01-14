@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
-    public function users()
+    public function user()
     {
         return $this->hasOne('App\User');
     }
 
-    public function offers()
+    public function offer()
     {
         return $this->belongsTo('App\Offer');
     }

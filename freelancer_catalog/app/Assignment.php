@@ -8,11 +8,11 @@ class Assignment extends Model
 {
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasOne('App\User');
     }
 
-    public function offer()
+    public function offers()
     {
-        return $this->belongsTo(Offer::class);
+        return $this->belongsTo('App\Offer');
     }
 }

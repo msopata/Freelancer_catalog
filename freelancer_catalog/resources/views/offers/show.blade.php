@@ -14,15 +14,8 @@
                     Owner: {{$user->name}}
                 </div>
                 @auth
-                    <form method="post" action="{{ route('offers.edit', $offer) }}">
-                    {{ method_field('GET') }}
-                    {{ csrf_field() }}
-                    <input type="submit" value="Edit">
-                </form>
-                    <form method="post" action="{{ route('offers.destroy', $offer) }}">
-                        {{ method_field('DELETE') }}
-                        {{ csrf_field() }}
-                        <input type="submit" value="Delete">
+                    <form action="/assignments">
+                    <input type="submit" value="Assign">
                     </form>
                 @endauth
 

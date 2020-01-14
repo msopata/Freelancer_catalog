@@ -9,16 +9,16 @@ class Offer extends Model
 
     public function accounts()
     {
-        return $this->belongsTo(Accounts::class);
+        return $this->belongsTo('App\Accounts');
     }
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User');
     }
 
     public function assignments()
     {
-        return $this->hasMany(Assignment::class);
+        return $this->hasMany('App\Assignments');
     }
 }

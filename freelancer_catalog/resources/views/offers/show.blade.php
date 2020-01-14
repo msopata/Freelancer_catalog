@@ -14,7 +14,11 @@
                     Owner: {{$user->name}}
                 </div>
                 @auth
-                    <a href="{{ route('assignments.create', $offer) }}">Assign</a>
+                    @if ( auth()->user()->id != $offer->user_id )
+
+                        <a href="{{ route('assignments.create', $offer) }}">Assign</a>
+
+                    @endif
                 <!--
                     <form action="/assignments">
                     <input type="submit" value="Assign">

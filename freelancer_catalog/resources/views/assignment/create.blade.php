@@ -22,6 +22,8 @@
                     <br>
                     Expected salary: <input type="text" name="expected_salary" value="{{ old("expected_salary") }}">
                     <br>
+                    Additional information <input type="text" name="additional_information" value="{{ old("additional_information") }}">
+                    <br>
                     <input type="submit" value="Create assignment">
                 </form>
 

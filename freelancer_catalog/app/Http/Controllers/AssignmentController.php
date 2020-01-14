@@ -29,6 +29,7 @@ class AssignmentController extends Controller
         $assignment = new Assignment();
         $assignment->expected_deadline = $request->expected_deadline;
         $assignment->expected_salary = $request->expected_salary;
+        $assignment->additional_information = $request->additional_information;
         $assignment->user_id = auth()->user()->id;
         $assignment->offer_id = 9;
         $assignment->save();

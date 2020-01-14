@@ -54,6 +54,7 @@ CREATE TABLE `assignments` (
   `user_id` int(11) NOT NULL,
   `expected_deadline` date NOT NULL,
   `expected_salary` decimal(8,2) NOT NULL,
+  `additional_information` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -204,7 +205,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$OJECQnOKXmrxgGHXGxKPdO5PAAi6qWHyaYEKPLgpjZsZeuGyKobT2',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$mI8FoJU5ehKRCrZqa.OkKOywolosJj/Wv8UDzQEpo31DmvKFhjnDe',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$cwWBdZMgLj7lpPydF4jZkezjUQQmlEzwnhHEheFbyqpDlvM3W.dMK',NULL,NULL,NULL),(4,'Alex Hunter','alex.hunter@gmail.com',NULL,'$2y$10$TkYDBOymjPRV7DEegpbG3OsgYoRnZWkfnoUO0t1CDPmZqzs/uebGa',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$WWAD8Wu.iEQ8pVjNoqIhd.IHVKYmXQOJrn0ueyTwm59yaABOQAoAC',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$gwmyQbJzxoQY2YSOVj1pseo7qprcSb1rIUAnMb6/vJHNrGqpoMIsG',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$Y9iNOGRycty0fDisiwwrtOoEStyCYKmNNlU4Q8KaLy8rigHD63pLC',NULL,NULL,NULL),(4,'Alex Hunter','alex.hunter@gmail.com',NULL,'$2y$10$jX/xJeD3zpSbHjFjBsgr2O/v01KVBIoD/bvl51UFk0fovCSrBqtGW',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -217,4 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-14 11:38:41
+-- Dump completed on 2020-01-14 12:10:42

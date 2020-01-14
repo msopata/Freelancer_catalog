@@ -19,6 +19,7 @@ class CreateAssignmentsTable extends Migration
             $table->integer('user_id');
             $table->date('expected_deadline');
             $table->decimal('expected_salary', 8, 2);
+            $table->text('additional_information');
             $table->timestamps();
         });
     }

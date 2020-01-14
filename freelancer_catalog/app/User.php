@@ -65,12 +65,12 @@ class User extends Authenticatable
 
     public function offers()
     {
-        return $this->hasMany(Offer::class);
+        return $this->hasMany('App\Offer');
     }
 
     public function assignments()
     {
-        return $this->hasMany(Assignment::class);
+        return $this->hasMany('App\Assignment');
     }
 
 

@@ -22,3 +22,5 @@ Route::resource('/offers', "OfferController");
 Route::resource('/accounts', "AccountsController");
 
 Route::resource('/profile', "ProfileController");
+
+Route::resource('/assignments', "AssignmentController");

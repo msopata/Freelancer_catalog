@@ -38,7 +38,7 @@ class OfferController extends Controller
     {
         $offer = new Offer();
         $offer->title = $request->title;
-        $offer->owner = auth()->user()->id;
+        $offer->user_id = auth()->user()->id;
         $offer->description = $request->description;
         $offer->deadline = $request->deadline;
         $offer->maxSalary = $request->maxSalary;
@@ -50,7 +50,9 @@ class OfferController extends Controller
 
     public function show(Offer $offer)
     {
-        $user = User::find($offer->owner);
+        $user = User::find($offer->user_id);
+        //$offers = $user->offers;
+        //return view('offers.show')->withOffer($offers);
         return view('offers.show')->withOffer($offer)->withUser($user);
     }
 

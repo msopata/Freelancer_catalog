@@ -13,7 +13,7 @@ class CreateAssignmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignment', function (Blueprint $table) {
+        Schema::create('assignments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('offer_id');
             $table->integer('user_id');

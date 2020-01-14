@@ -29,7 +29,7 @@ CREATE TABLE `accounts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,8 +38,35 @@ CREATE TABLE `accounts` (
 
 LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES (1,'Johnny Bravo',5,NULL,NULL);
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assignments`
+--
+
+DROP TABLE IF EXISTS `assignments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assignments` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `offer_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `expected_deadline` date NOT NULL,
+  `expected_salary` decimal(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assignments`
+--
+
+LOCK TABLES `assignments` WRITE;
+/*!40000 ALTER TABLE `assignments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assignments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -81,7 +108,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +117,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2020_01_10_092442_create_offers_table',1),(5,'2020_01_10_235616_create_accounts_table',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2020_01_10_092442_create_offers_table',1),(5,'2020_01_10_235616_create_accounts_table',1),(6,'2020_01_12_164843_create_assignments_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,17 +131,15 @@ DROP TABLE IF EXISTS `offers`;
 CREATE TABLE `offers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner` int(10) unsigned NOT NULL,
+  `user_id` int(11) NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `deadline` date NOT NULL,
   `maxSalary` decimal(8,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `offers_id_unique` (`id`),
-  KEY `offers_owner_foreign` (`owner`),
-  CONSTRAINT `offers_owner_foreign` FOREIGN KEY (`owner`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `offers_id_unique` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +148,7 @@ CREATE TABLE `offers` (
 
 LOCK TABLES `offers` WRITE;
 /*!40000 ALTER TABLE `offers` DISABLE KEYS */;
-INSERT INTO `offers` VALUES (1,'new webpage',1,'help me','2020-01-20',3000.00,'2020-01-11 20:39:09','2020-01-11 20:39:09');
+INSERT INTO `offers` VALUES (1,'new webpage',1,'help me','2020-01-20',3000.00,NULL,NULL),(2,'Freelancer offer catalog',2,'website using laravel framework','2020-01-22',0.00,NULL,NULL),(3,'Sudoku game',3,'Technology: Python, Intertk','2020-02-22',50.00,NULL,NULL),(4,'Temporary database',4,'Technology: C++','2020-01-31',0.00,NULL,NULL);
 /*!40000 ALTER TABLE `offers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +195,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_id_unique` (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +204,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$nJyrrYqJ32cBtBJziDGV6uCFGs0jLkwi59noXHh92OLDTNpum0iOK',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$04m1CENtguq.hWhfuahjj.4diW.M4G08Li7HbXP6L.Iw4X5haP6hS',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$B3RwtP3ZUkcb6za7mcxTneHWLXsKM5RAdCo2qUkW/LyMlqhGDtNGG',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$OJECQnOKXmrxgGHXGxKPdO5PAAi6qWHyaYEKPLgpjZsZeuGyKobT2',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$mI8FoJU5ehKRCrZqa.OkKOywolosJj/Wv8UDzQEpo31DmvKFhjnDe',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$cwWBdZMgLj7lpPydF4jZkezjUQQmlEzwnhHEheFbyqpDlvM3W.dMK',NULL,NULL,NULL),(4,'Alex Hunter','alex.hunter@gmail.com',NULL,'$2y$10$TkYDBOymjPRV7DEegpbG3OsgYoRnZWkfnoUO0t1CDPmZqzs/uebGa',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -192,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-11 22:39:22
+-- Dump completed on 2020-01-14 11:38:41

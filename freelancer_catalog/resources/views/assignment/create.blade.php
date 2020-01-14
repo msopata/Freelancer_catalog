@@ -16,10 +16,14 @@
                     </div>
                 @endif
 
-                Deadline: <input type="date" name="deadline" value="{{ $offer->deadline }}">
-                <br>
-                Salary: <input type="text" name="maxSalary" value="{{ $offer->maxSalary }}">
-                <br>
+                <form method="post" action="{{ route('assignments.store') }}">
+                    {{ csrf_field() }}
+                    Estimated deadline: <input type="date" name="expected_deadline" value="{{ old("expected_deadline") }}">
+                    <br>
+                    Expected salary: <input type="text" name="expected_salary" value="{{ old("expected_salary") }}">
+                    <br>
+                    <input type="submit" value="Create assignment">
+                </form>
 
             </div>
         </div>

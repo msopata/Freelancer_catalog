@@ -16,13 +16,31 @@
                 @auth
                     @if ( auth()->user()->id != $offer->user_id )
 
-                        <a href="{{ route('offers.assignments.create', $offer) }}">Assign</a>
+                        <a href="{{ route('offers.assignments.create', $offer) }}" class="btn btn-primary">Assign</a>
 
+                    @else
+                        <br>
+                        <br>
+                        <h3>List of candidates: </h3>
+                        <table class="table table-striped">
+
+                            <tr>
+                                <th>Name</th>
+                                <th>Comments</th>
+                                <th>Provided Deadline</th>
+                                <th>Expected Salary</th>
+                                <th></th>
+                            </tr>
+                        @foreach( $offer->assignments as $assignment )
+                            <tr>
+                                <th>name: </th>
+                                <th>{{$assignment->additional_information}}</th>
+                                <th>{{$assignment->expected_deadline}}</th>
+                                <th>{{$assignment->expected_salary}}</th>
+                                <th><a class="btn btn-primary">Confirm</a></th>
+                            </tr>
+                        @endforeach
                     @endif
-                <!--
-                    <form action="/assignments">
-                    <input type="submit" value="Assign">
-                    </form> -->
                 @endauth
 
 

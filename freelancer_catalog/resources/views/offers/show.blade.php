@@ -26,14 +26,15 @@
 
                             <tr>
                                 <th>Name</th>
-                                <th>Comments</th>
+                                <th>Notes</th>
                                 <th>Provided Deadline</th>
                                 <th>Expected Salary</th>
                                 <th></th>
                             </tr>
                         @foreach( $offer->assignments as $assignment )
+
                             <tr>
-                                <th>name: </th>
+                                <th>{{$assignment->user->name }}</th>
                                 <th>{{$assignment->additional_information}}</th>
                                 <th>{{$assignment->expected_deadline}}</th>
                                 <th>{{$assignment->expected_salary}}</th>

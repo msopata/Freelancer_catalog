@@ -52,6 +52,7 @@
                         <th>Description</th>
                         <th>Salary</th>
                         <th>Deadline</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                     @foreach( $assignments as $assignment )
@@ -60,8 +61,14 @@
                             <th>{{$assignment->offer->description}}</th>
                             <th>{{$assignment->expected_salary}}</th>
                             <th>{{$assignment->expected_deadline}}</th>
-                            <th> <a href="" class="btn btn-default">Confirm</a><br>
-                            <a href="" class="btn btn-default">Resign</a></th>
+                            @if ( $assignment->status == 'Pending')
+                                <th>{{$assignment->status}}</th>
+                            @elseif ($assignment->status =='Accepted' )
+                                <th> <a href="" class="btn btn-default">Confirm</a><br>
+                                <a href="" class="btn btn-default">Resign</a></th>
+                            @else
+                                <th>{{$assignment->status}}</th>
+                            @endif
 
                             <!-- To do
                             Confirm, Resign buttons dependent on assignments status -->

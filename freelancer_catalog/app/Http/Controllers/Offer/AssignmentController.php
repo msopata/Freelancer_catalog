@@ -42,7 +42,7 @@ class AssignmentController extends Controller
         $assignment->expected_salary = $request->expected_salary;
         $assignment->additional_information = $request->additional_information;
         $assignment->user_id = auth()->user()->id;
-        $assignment->status = 'Accepted';
+        $assignment->status = 'Pending';
         $offer->assignments()->save($assignment);
 
         //return redirect()->route('assignment.assigned');

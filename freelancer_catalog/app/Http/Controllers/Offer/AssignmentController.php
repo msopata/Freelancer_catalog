@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Offer;
 
 
 use App\Assignment;
+use App\User;
 use Illuminate\Http\Request;
 use App\Offer;
+use App\Http\Controllers\Controller;
 
 class AssignmentController extends Controller
 {
@@ -23,7 +25,8 @@ class AssignmentController extends Controller
 
     public function create( Offer $offer )
     {
-        return view('assignment.create')->withOffer( $offer );
+        $user = User::find($offer->user_id);
+        return view('offers.assignment.create')->withOffer( $offer )->withUser($user);
     }
 
 
@@ -32,19 +35,19 @@ class AssignmentController extends Controller
         return view('assignment.assigned');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Offer $offer)
     {
         $assignment = new Assignment();
         $assignment->expected_deadline = $request->expected_deadline;
         $assignment->expected_salary = $request->expected_salary;
         $assignment->additional_information = $request->additional_information;
         $assignment->user_id = auth()->user()->id;
-        $assignment->offer_id = 2;
+        //$assignment->offer_id = 2;
         //$assignment->offer_id = $offer->id;
-        $assignment->save();
+        $offer->assignments()->save($assignment);
 
         //return redirect()->route('assignment.assigned');
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index', [$offer, $assignment]);
     }
 
 }

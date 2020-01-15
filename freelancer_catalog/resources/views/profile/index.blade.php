@@ -56,8 +56,8 @@
                     </tr>
                     @foreach( $assignments as $assignment )
                         <tr>
-                            <th>Offer title here: {{$assignment->offer_id}}</th> <!-- $assignment->offer->id not working -->
-                            <th>Offer description here: </th>
+                            <th>{{$assignment->offer->title}}</th> <!-- $assignment->offer->id not working -->
+                            <th>{{$assignment->offer->description}}</th>
                             <th>{{$assignment->expected_salary}}</th>
                             <th>{{$assignment->expected_deadline}}</th>
                             <th> <a href="" class="btn btn-default">Confirm</a><br>

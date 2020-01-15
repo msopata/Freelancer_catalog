@@ -17,10 +17,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/offers', "OfferController");
+Route::resource('offers', 'OfferController');
 
 Route::resource('/accounts', "AccountsController");
 
 Route::resource('/profile', "ProfileController");
 
-Route::resource('/assignments', "AssignmentController");
+Route::resource('offers.assignments', 'Offer\AssignmentController');

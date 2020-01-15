@@ -19,6 +19,6 @@ class Offer extends Model
 
     public function assignments()
     {
-        return $this->hasMany('App\Assignments');
+        return $this->hasMany('App\Assignment');
     }
 }

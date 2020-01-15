@@ -4,7 +4,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <h2>{{ $offer->title }} ({{ $offer->deadline }})</h2>
+                <div>
+                    Description: {{$offer->description}}
+                    <br>
+                    Salary: {{$offer->maxSalary}}
+                    <br>
+                    Owner: {{$user->name}}
+                </div>
+                <br>
                 <h2>Put your offer:</h2>
+                <br>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -16,7 +26,7 @@
                     </div>
                 @endif
                 <div>Offer id: </div>
-                <form method="post" action="{{ route('assignments.store') }}">
+                <form method="post" action="{{ route('offers.assignments.store', $offer) }}">
                     {{ csrf_field() }}
                     Estimated deadline: <input type="date" name="expected_deadline" value="{{ old("expected_deadline") }}">
                     <br>

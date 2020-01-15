@@ -16,7 +16,7 @@
                 @auth
                     @if ( auth()->user()->id != $offer->user_id )
 
-                        <a href="{{ route('assignments.create', $offer) }}">Assign</a>
+                        <a href="{{ route('offers.assignments.create', $offer) }}">Assign</a>
 
                     @endif
                 <!--

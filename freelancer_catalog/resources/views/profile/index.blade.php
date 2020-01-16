@@ -39,9 +39,7 @@
                         @endforeach
                     </table>
                 </div>
-
-
-            </div>
+        </div>
         <div class="col-md-8">
             <div class="panel-body"><br>
                 <h3>Assigned offers</h3>

@@ -21,6 +21,10 @@ Route::resource('offers', 'OfferController');
 
 Route::resource('/accounts', "AccountsController");
 
-Route::resource('/profile', "ProfileController");
+Route::resource('offers.other', "Offer\OtherController");
+
+Route::resource('profile', "ProfileController");
+
+Route::get('/profile/{profile}', 'ProfileController@show');
 
 Route::resource('offers.assignments', 'Offer\AssignmentController');

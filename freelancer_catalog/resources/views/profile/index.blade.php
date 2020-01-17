@@ -61,11 +61,11 @@
                             <th>{{$assignment->expected_deadline}}</th>
                             @if ( $assignment->status == 'Pending')
                                 <th>{{$assignment->status}}</th>
-                            @elseif ($assignment->status =='Accepted' )
-                                <th> <a href="" class="btn btn-default">Confirm</a><br>
-                                <a href="" class="btn btn-default">Resign</a></th>
-                            @else
-                                <th>{{$assignment->status}}</th>
+                            @elseif ($assignment->status == 'Accepted' )
+                                <th> <a href="{{route('offers.assignments.edit', [$offer, $assignment])}}" class="btn btn-default">Confirm</a><br>
+                                <a href="{{route('offers.assignments.destroy', [$offer, $assignment])}}" class="btn btn-default">Resign</a></th>
+                            @elseif ($assignment->status == 'Confirmed' )
+                                <th>You got a job to do!</th>
                             @endif
 
                             <!-- To do

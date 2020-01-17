@@ -19,8 +19,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('offers', 'OfferController');
 
-Route::resource('/accounts', "AccountsController");
+Route::resource('profile', "ProfileController");
 
-Route::resource('/profile', "ProfileController");
+Route::resource('rating', "RatingController");
+
+//Route::get('/profile/{profile}', 'ProfileController@show');
 
 Route::resource('offers.assignments', 'Offer\AssignmentController');
+
+Route::get('offers.index', 'OfferController@index');

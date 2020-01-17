@@ -16,9 +16,8 @@
 
                 @auth
                     @if ( auth()->user()->id != $offer->user_id )
-
+                        <a href="{{ url('/profile/' . $user->id)}}" class="btn btn-primary">View profile</a>
                         <a href="{{ route('offers.assignments.create', $offer) }}" class="btn btn-primary">Assign</a>
-
                     @else
                         <br>
                         <br>
@@ -41,14 +40,16 @@
 
                             <tr>
                                 <th>Name</th>
-                                <th>Comments</th>
+                                <th>Notes</th>
                                 <th>Provided Deadline</th>
                                 <th>Expected Salary</th>
                                 <th>Status</th>
                             </tr>
 
                         @foreach( $offer->assignments as $assignment )
+
                             <tr>
+
                                 @foreach( $offer->assignments as $ass)
                                     @if ($ass->status == 'Pending')
                                         @continue
@@ -76,6 +77,7 @@
                                     <th>{{$assignment->expected_salary}}</th>
                                     <th><a href="{{route('offers.assignments.show', [$offer, $assignment])}}" class="btn btn-primary">Accept</a></th>
                                 @endif
+
                             </tr>
                         @endforeach
                     @endif

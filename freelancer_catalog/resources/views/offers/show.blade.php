@@ -44,38 +44,25 @@
                                 <th>Provided Deadline</th>
                                 <th>Expected Salary</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
 
                         @foreach( $offer->assignments as $assignment )
-
                             <tr>
-
-                                @foreach( $offer->assignments as $ass)
-                                    @if ($ass->status == 'Pending')
-                                        @continue
-                                    @elseif ($ass->status == 'Accepted')
-                                        @php
-                                            $var = 1;
-                                        @endphp
-                                    @endif
-                                @endforeach
-                                @if ( $var ?? '' == 1 )
+                                @if ( $assignment->status == 'Accepted' )
                                         <th>{{$assignment->user->name}}</th>
                                         <th>{{$assignment->additional_information}}</th>
                                         <th>{{$assignment->expected_deadline}}</th>
                                         <th>{{$assignment->expected_salary}}</th>
-                                        @if ( $assignment->status == 'Accepted')
                                             <th>Waiting for confirmation</th>
-                                        @else
-                                            <th>In queue</th>
-                                        @endif
 
-                                @elseif ($assignment->status != 'Confirmed')
+                                @elseif ($assignment->status == 'Pending')
                                     <th>{{$assignment->user->name}}</th>
                                     <th>{{$assignment->additional_information}}</th>
                                     <th>{{$assignment->expected_deadline}}</th>
                                     <th>{{$assignment->expected_salary}}</th>
                                     <th><a href="{{route('offers.assignments.show', [$offer, $assignment])}}" class="btn btn-primary">Accept</a></th>
+                                    <th><a href="{{route('offers.assignments.update', [$offer, $assignment])}}" class="btn btn-primary close">x</a></th>
                                 @endif
 
                             </tr>

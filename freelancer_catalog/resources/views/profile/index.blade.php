@@ -55,7 +55,7 @@
                     </tr>
                     @foreach( $assignments as $assignment )
                         <tr>
-                            <th>{{$assignment->offer->title}}</th> <!-- $assignment->offer->id not working -->
+                            <th>{{$assignment->offer->title}}</th>
                             <th>{{$assignment->offer->description}}</th>
                             <th>{{$assignment->expected_salary}}</th>
                             <th>{{$assignment->expected_deadline}}</th>

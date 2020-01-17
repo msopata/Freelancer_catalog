@@ -34,7 +34,7 @@ class OffersTableSeeder extends Seeder
         'user_id' => 2,
         'description' => 'website using laravel framework',
         'deadline' => '2020-01-22 13:33:44',
-        'maxSalary' => 0
+        'maxSalary' => 1500
     ]);
 
         DB::table('offers')->insert([
@@ -50,7 +50,7 @@ class OffersTableSeeder extends Seeder
             'user_id' => 4,
             'description' => 'Technology: C++',
             'deadline' => '2020-01-31 13:33:44',
-            'maxSalary' => 0
+            'maxSalary' => 900
         ]);
 
 

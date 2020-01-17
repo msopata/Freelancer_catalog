@@ -110,7 +110,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +119,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2020_01_10_092442_create_offers_table',1),(5,'2020_01_10_235616_create_accounts_table',1),(6,'2020_01_12_164843_create_assignments_table',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2020_01_10_092442_create_offers_table',1),(5,'2020_01_10_235616_create_accounts_table',1),(6,'2020_01_12_164843_create_assignments_table',1),(7,'2020_01_16_210811_create_ratings_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,6 +179,36 @@ LOCK TABLES `password_resets` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `ratings`
+--
+
+DROP TABLE IF EXISTS `ratings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ratings` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `rating_id` int(11) NOT NULL,
+  `lead_time` int(11) NOT NULL,
+  `quality` int(11) NOT NULL,
+  `final_result` int(11) NOT NULL,
+  `additional information` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ratings`
+--
+
+LOCK TABLES `ratings` WRITE;
+/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -206,7 +236,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$0GX5llSIpbQTO6R/RKRgNOagAoHPH9d3X3fOHS1ba4dm1UX7JVtQC',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$XERNKDG3deHdFZBq9LYejuqBu28n27xn8Of9ukyjrtI1iwA9I8xL6',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$AZQ2F/OTsAOqP13O64KtzuBL/0spNnmhBMwel4RW.EhQhPSFNLYvK',NULL,NULL,NULL),(4,'Alex Hunter','alex.hunter@gmail.com',NULL,'$2y$10$Cgjd5V/A4Dk831ZE8f3UFOlmrQrvXHcvYIMhoL0FgFZqztGniEebK',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$.Hkm9ip0TrRlPWKl9EFXzOHLpuTTuEAmbo9CDdpdmJjk5CB50a8EO',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$WMpFmMPUP4oGwWoBzB9k.OyvM2pz3RExnY0ecVm6p/v073efnT2QS',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$YTVIsvRA90QgQNORaKTMl.qL.v1Xsd0Cj9htuJFZWYRPKRLyoD4Cm',NULL,NULL,NULL),(4,'Alex Hunter','alex.hunter@gmail.com',NULL,'$2y$10$gCxYovSqBfmKtA9OMEqmrOqNGXNZ49PiuxZXJNuNLEjO4MvxGVnDG',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -219,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-17 13:59:26
+-- Dump completed on 2020-01-17 20:15:06

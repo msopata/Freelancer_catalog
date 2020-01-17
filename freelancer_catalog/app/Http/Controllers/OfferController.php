@@ -45,6 +45,12 @@ class OfferController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'deadline' => 'after:today',
+            'maxSalary' => 'required|not_in:0|numeric'
+        ]);
         $offer = new Offer();
         $offer->title = $request->title;
         $offer->user_id = auth()->user()->id;

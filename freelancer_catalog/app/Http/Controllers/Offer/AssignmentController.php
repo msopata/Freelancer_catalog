@@ -19,7 +19,6 @@ class AssignmentController extends Controller
 
     public function index( )
     {
-        //useless
         return view('assignment.create');
     }
 
@@ -32,6 +31,11 @@ class AssignmentController extends Controller
 
     public function store(Request $request, Offer $offer)
     {
+        $this->validate($request, [
+            'expected_deadline' => 'after:today',
+            'expected_salary' => 'required|not_in:0|numeric',
+            'additional_information' => 'required'
+        ]);
         $assignment = new Assignment();
         $assignment->expected_deadline = $request->expected_deadline;
         $assignment->expected_salary = $request->expected_salary;
@@ -46,7 +50,6 @@ class AssignmentController extends Controller
     public function show(Offer $offer, Assignment $assignment )
     {
         $assignment->status = 'Accepted';
-        //$offer->assignments()->save($assignment);
         $assignment->save();
         return redirect()->route('offers.show', [$offer, $assignment]);
     }
@@ -55,9 +58,6 @@ class AssignmentController extends Controller
     {
         $assignment->status = 'Confirmed';
         $assignment->save();
-        //$offer->assignments()->save($assignment);
-        //$offers = $offer->assignments();
-        //$offers->where('status', '!=', 'Confirmed')->delete();
         Assignment::where([ ['status', '!=', 'Confirmed'],
                             ['offer_id', '=', $assignment->offer_id] ])->delete();
 
@@ -65,14 +65,11 @@ class AssignmentController extends Controller
 
     }
 
-    public function destroy( Offer $offer, Assignment $assignment )
+    public function update( Offer $offer, Assignment $assignment )
     {
-        $assignment->status = 'Resigned';
-        $assignment->save();
-        Assignment::where( ['status', '=', 'Resigned'])->delete();
+        $assignment->delete();
 
-        return redirect()->route('profile.index', [$offer, $assignment]);
-
+        return redirect()->route('profile.index', [$offer,$assignment]);
     }
 
 

@@ -21,9 +21,15 @@ class OfferController extends Controller
             return view('welcome')->withOffers( $offers );
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $offers =  Offer::all()->sortByDesc('id');
+        if($request->filled('min_salary'))
+            $offers = $offers->where('salary', '>=', $request->min_salary);
+
+       if($request->filled('max_deadline'))
+            $offers = $offers->where('deadline', '<=', $request->max_deadline);
+
 
         return view('offers.index')->withOffers($offers);
     }

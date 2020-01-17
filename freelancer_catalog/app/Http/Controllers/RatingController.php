@@ -1,28 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Offer;
+namespace App\Http\Controllers;
 
-use App\User;
+use App\Assignment;
 use App\Offer;
+use App\User;
+use App\Rating;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class OtherController extends Controller
+class RatingController extends Controller
 {
-    public function index(Offer $offers, User $user)
-    {
 
-        return view('offers.other.index')->withOffers($offers)->withUsers($user);
+    public function index( )
+    {
+        //useless
+        //return view('rating.create');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create( User $id )
     {
-        //
+       // $user=new User();
+       // $user->id=$id;
+       // $users=User::find($user->id);
+       // $rating = Rating::find($user);
+        // return view('rating.create',$users)->withRating($rating);
     }
 
     /**
@@ -31,9 +32,18 @@ class OtherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        //
+        $rating = new Rating();
+        $rating->lead_time = $request->lead_time;
+        $rating->quality = $request->quality;
+        $rating->final_result = $request->final_result;
+        $rating->additional_information = $request->additional_information;
+        $rating->rating_id=$user->id;
+        $rating->user_id = auth()->user()->id;
+        $user->assignments()->save($rating);
+
+        return redirect()->route('profile.index', [$rating, $user]);
     }
 
     /**

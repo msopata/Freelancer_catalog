@@ -17,7 +17,7 @@
         <div class="col-md-8">
             <div class="panel-body">
                 <br>
-                <h3>{{$name}}</h3>
+                <h3>{{$users->name}}</h3>
                 <br>
                 <table class="table table-striped">
                     <tr>
@@ -41,30 +41,29 @@
         </div>
         <div class="col-md-8">
             <div class="panel-body"><br>
-                <h3>Ratings</h3>
+                <h3>Your Rate</h3>
                 <br>
-                <a href="{{route("rating.create", $id)}}" class="btn btn-primary">Add new rate +</a>
-                <br>
-                <table class="table table-striped">
-                    <tr>
-                        <th></th>
-                        <th>Rating user</th>
-                        <th>Lead time</th>
-                        <th>Quality</th>
-                        <th>Final result</th>
-                        <th>Additional information</th>
-                    </tr>
-                    @foreach( $ratings as $rating )
-                        <tr>
-                            <th></th><!--name user-->
-                            <th></th><!--rating user-->
-                            <th>{{$rating->lead_time}}</th>
-                            <th>{{$rating->quality}}</th>
-                            <th>{{$rating->final_result}}</th>
-                            <th>{{$rating->additional_information}}</th>
-                        </tr>
-                    @endforeach
-                </table>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form method="post" action="{{ route('rating.store') }}">
+                    {{ csrf_field() }}
+                    Lead time: <input type="integer" name="lead_time" value="{{ old("lead_time") }}">
+                    <br>
+                    Quality: <input type="integer" name="quality" value="{{ old("quality") }}">
+                    <br>
+                    Final result: <input type="integer" name="final_result" value="{{ old("final_result") }}">
+                    <br>
+                    Additional information <input type="text" name="additional_information" value="{{ old("additional_information") }}">
+                    <br>
+                    <input type="submit" value="Put your rate">
+                </form>
             </div>
         </div>
     </div>

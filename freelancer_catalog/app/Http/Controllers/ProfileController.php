@@ -26,6 +26,6 @@ class ProfileController extends Controller
         $url= url()->current();
         $users = User::find(substr($url,-1));
 
-        return view('profile.show', $users)->withOffers($users->offers);
+        return view('profile.show', $users)->withOffers($users->offers)->withRatings($users->ratings);
     }
 }

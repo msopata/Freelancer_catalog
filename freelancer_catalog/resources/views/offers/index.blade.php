@@ -6,6 +6,7 @@
             margin: 10px;
             width: 150px;
         }
+
     </style>
     <div class="container">
         <div class="row justify-content-center">
@@ -19,16 +20,25 @@
                 </form>
                 <br>
 
-                <a href="{{ route('offers.create') }}">Create new...</a>
+                <a href="{{ route('offers.create') }}" class="btn btn-primary"> Add new +</a>
 
-                <ul>
-                    @foreach($offers as $offer)
-                        <li>
-                            <strong>{{ $offer->title }}</strong>
-                            <a href="{{ route('offers.show', $offer) }}">details</a>
-                        </li>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Title</th>
+                        <th>Salary</th>
+                        <th>Deadline</th>
+                        <th></th>
+                    </tr>
+                    @foreach( $offers as $offer )
+                        <tr>
+                            <th> <strong>{{$offer->title}}</strong></th>
+                            <th>{{$offer->maxSalary}}</th>
+                            <th>{{$offer->deadline}}</th>
+                            <th><a href="{{ route('offers.show', $offer) }}"class="btn btn-primary">View</a></th>
+                        </tr>
                     @endforeach
-                </ul>
+                </table>
+
             </div>
         </div>
     </div>

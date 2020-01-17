@@ -30,11 +30,6 @@ class AssignmentController extends Controller
     }
 
 
-    public function assigned()
-    {
-        return view('assignment.assigned');
-    }
-
     public function store(Request $request, Offer $offer)
     {
         $assignment = new Assignment();
@@ -45,8 +40,40 @@ class AssignmentController extends Controller
         $assignment->status = 'Pending';
         $offer->assignments()->save($assignment);
 
-        //return redirect()->route('assignment.assigned');
         return redirect()->route('profile.index', [$offer, $assignment]);
     }
+
+    public function show(Offer $offer, Assignment $assignment )
+    {
+        $assignment->status = 'Accepted';
+        //$offer->assignments()->save($assignment);
+        $assignment->save();
+        return redirect()->route('offers.show', [$offer, $assignment]);
+    }
+
+    public function edit(Offer $offer, Assignment $assignment )
+    {
+        $assignment->status = 'Confirmed';
+        $assignment->save();
+        //$offer->assignments()->save($assignment);
+        //$offers = $offer->assignments();
+        //$offers->where('status', '!=', 'Confirmed')->delete();
+        Assignment::where([ ['status', '!=', 'Confirmed'],
+                            ['offer_id', '=', $assignment->offer_id] ])->delete();
+
+        return redirect()->route('profile.index', [$offer, $assignment]);
+
+    }
+
+    public function destroy( Offer $offer, Assignment $assignment )
+    {
+        $assignment->status = 'Resigned';
+        $assignment->save();
+        Assignment::where( ['status', '=', 'Resigned'])->delete();
+
+        return redirect()->route('profile.index', [$offer, $assignment]);
+
+    }
+
 
 }

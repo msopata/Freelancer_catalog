@@ -16,7 +16,7 @@
 
                 @auth
                     @if ( auth()->user()->id != $offer->user_id )
-                        <a href="{{ url('/profile/' . $user->id)}}" class="btn btn-primary">View profile</a>
+                        <a href="{{ route('profile.show', $user->id)}}" class="btn btn-primary">View profile</a>
                         <a href="{{ route('offers.assignments.create', $offer) }}" class="btn btn-primary">Assign</a>
                     @else
                         <br>

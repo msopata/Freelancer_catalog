@@ -55,7 +55,7 @@ CREATE TABLE `assignments` (
   `expected_deadline` date NOT NULL,
   `expected_salary` decimal(8,2) NOT NULL,
   `additional_information` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -141,7 +141,7 @@ CREATE TABLE `offers` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `offers_id_unique` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,6 @@ CREATE TABLE `offers` (
 
 LOCK TABLES `offers` WRITE;
 /*!40000 ALTER TABLE `offers` DISABLE KEYS */;
-INSERT INTO `offers` VALUES (1,'new webpage',1,'help me','2020-01-20',3000.00,NULL,NULL),(2,'Freelancer offer catalog',2,'website using laravel framework','2020-01-22',0.00,NULL,NULL),(3,'Sudoku game',3,'Technology: Python, Intertk','2020-02-22',50.00,NULL,NULL),(4,'Temporary database',4,'Technology: C++','2020-01-31',0.00,NULL,NULL);
 /*!40000 ALTER TABLE `offers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +191,7 @@ CREATE TABLE `ratings` (
   `lead_time` int(11) NOT NULL,
   `quality` int(11) NOT NULL,
   `final_result` int(11) NOT NULL,
-  `additional information` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `additional_information` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -227,7 +226,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_id_unique` (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,7 +235,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Johnny Bravo','johnny.bravo@gmail.com',NULL,'$2y$10$QWB3Mmuf/j9F6dLeyYnbB.OnAWlEbnl6ilEh6HpKOWyk5AEpD34XC',NULL,NULL,NULL),(2,'Tom Hanks','tom.hanks@gmail.com',NULL,'$2y$10$.GzTsicCUvOIT80N9lT3EumKFgn2spjJdZH86MVmxIgnAMAHQxFKm',NULL,NULL,NULL),(3,'Dummy Kowalski','dum.kowal@gmail.com',NULL,'$2y$10$xVJetYYqy2ygY96s4RNrC.FvHg.2NaiUn0jTZdpEtCZhXYFrPWOsS',NULL,NULL,NULL),(4,'Alex Hunter','alex.hunter@gmail.com',NULL,'$2y$10$qumF7J1n53gJyZY/XV.VvO8THPLF8loCk9MoQlYTKuqunM6tSDkAO',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -249,4 +247,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-17  0:05:45
+-- Dump completed on 2020-01-20 22:37:51

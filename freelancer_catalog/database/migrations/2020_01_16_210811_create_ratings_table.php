@@ -20,7 +20,7 @@ class CreateRatingsTable extends Migration
             $table->integer('lead_time');
             $table->integer('quality');
             $table->integer('final_result');
-            $table->text('additional information');
+            $table->text('additional_information');
             $table->timestamps();
         });
     }

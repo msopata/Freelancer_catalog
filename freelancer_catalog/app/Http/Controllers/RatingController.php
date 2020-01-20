@@ -17,13 +17,12 @@ class RatingController extends Controller
         //return view('rating.create');
     }
 
-    public function create( User $id )
+    public function create()
     {
-       // $user=new User();
-       // $user->id=$id;
-       // $users=User::find($user->id);
-       // $rating = Rating::find($user);
-        // return view('rating.create',$users)->withRating($rating);
+        $users = User::where('id','=',$id)->first();
+       $rating = Rating::where('user_id','=',$id);
+       var_dump($users);
+       return view('rating.create', $id)->withUsers($users)->withRating($rating);
     }
 
     /**

@@ -29,3 +29,5 @@ Route::resource('offers.assignments', 'Offer\AssignmentController');
 
 
 Route::get('offers.index', 'OfferController@index');
+
+Route::get('profile/{id}', 'ProfileController@show');

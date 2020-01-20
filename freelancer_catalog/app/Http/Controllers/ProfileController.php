@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Offer;
+use App\Rating;
 use Illuminate\Routing\UrlGenerator;
 
 class ProfileController extends Controller
@@ -21,11 +22,18 @@ class ProfileController extends Controller
     {
 
     }
-    public function show(User $user)
+    public function show($id)
     {
-        $url= url()->current();
-        $users = User::find(substr($url,-1));
+        //$url= url()->current();
+        //$users = User::find(substr($url,-1));
 
-        return view('profile.show', $users)->withOffers($users->offers)->withRatings($users->ratings);
+        $users = User::find($id);
+        $offers = User::where('user_id','=',$id);
+
+        $ratings = Rating::where('user_id','=',$id);
+
+        //return view('profile.show', [$offers, $users])->withRatings($ratings);
+        return view('profile.show', ['show' => User::findOrFail($id)])->withUsers($users)->withOffers($offers)
+            ->withRatings($ratings);
     }
 }

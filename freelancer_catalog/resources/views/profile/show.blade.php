@@ -17,7 +17,7 @@
         <div class="col-md-8">
             <div class="panel-body">
                 <br>
-                <h3>{{$name}}</h3>
+                <h3>{{$users->name}}</h3>
                 <br>
                 <table class="table table-striped">
                     <tr>
@@ -43,7 +43,7 @@
             <div class="panel-body"><br>
                 <h3>Ratings</h3>
                 <br>
-                <a href="{{route("rating.create", $id)}}" class="btn btn-primary">Add new rate +</a>
+                <a href="{{route("rating.create")}}" class="btn btn-primary">Add new rate +</a>
                 <br>
                 <table class="table table-striped">
                     <tr>

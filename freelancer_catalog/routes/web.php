@@ -21,7 +21,7 @@ Route::resource('offers', 'OfferController');
 
 Route::resource('profile', "ProfileController");
 
-Route::resource('rating', "RatingController");
+Route::resource('profile.rating', "Profile\RatingController");
 
 //Route::get('/profile/{profile}', 'ProfileController@show');
 
@@ -30,4 +30,4 @@ Route::resource('offers.assignments', 'Offer\AssignmentController');
 
 Route::get('offers.index', 'OfferController@index');
 
-Route::get('profile/{id}', 'ProfileController@show');
+//Route::get('profile/{id}', 'ProfileController@show');

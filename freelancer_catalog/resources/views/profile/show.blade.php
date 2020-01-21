@@ -43,7 +43,7 @@
             <div class="panel-body"><br>
                 <h3>Ratings</h3>
                 <br>
-                <a href="{{route("rating.create")}}" class="btn btn-primary">Add new rate +</a>
+                <a href="{{route("profile.rating.create",$users)}}" class="btn btn-primary">Add new rate +</a>
                 <br>
                 <table class="table table-striped">
                     <tr>
@@ -56,8 +56,8 @@
                     </tr>
                     @foreach( $ratings as $rating )
                         <tr>
-                            <th></th><!--name user-->
-                            <th></th><!--rating user-->
+                            <th></th>
+                            <th>{{$rating->rating_id}}</th>
                             <th>{{$rating->lead_time}}</th>
                             <th>{{$rating->quality}}</th>
                             <th>{{$rating->final_result}}</th>

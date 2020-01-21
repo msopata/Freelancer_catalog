@@ -24,16 +24,13 @@ class ProfileController extends Controller
     }
     public function show($id)
     {
-        //$url= url()->current();
-        //$users = User::find(substr($url,-1));
 
         $users = User::find($id);
-        $offers = User::where('user_id','=',$id);
-
-        $ratings = Rating::where('user_id','=',$id);
+        $offers = Offer::all()->where('user_id',$id);
+        $ratings = Rating::all()->where('user_id','=',$id);
 
         //return view('profile.show', [$offers, $users])->withRatings($ratings);
-        return view('profile.show', ['show' => User::findOrFail($id)])->withUsers($users)->withOffers($offers)
+        return view('profile.show',[$id])->withUsers($users)->withOffers($offers)
             ->withRatings($ratings);
     }
 }

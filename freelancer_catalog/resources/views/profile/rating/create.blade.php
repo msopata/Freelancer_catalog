@@ -41,7 +41,9 @@
         </div>
         <div class="col-md-8">
             <div class="panel-body"><br>
-                <h3>Your Rate</h3>
+                <h3>
+
+                    Your Rate</h3>
                 <br>
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -52,7 +54,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="{{ route('rating.store') }}">
+                <form method="post" action="{{ route('profile.rating.store', $users) }}">
                     {{ csrf_field() }}
                     Lead time: <input type="integer" name="lead_time" value="{{ old("lead_time") }}">
                     <br>

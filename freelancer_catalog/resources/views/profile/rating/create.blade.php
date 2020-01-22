@@ -10,9 +10,9 @@
 
         .col-md-8{
             flex: 1;
-        }
 
-    </style>
+        }
+        </style>
     <div class="container">
         <div class="col-md-8">
             <div class="panel-body">
@@ -56,11 +56,11 @@
                 @endif
                 <form method="post" action="{{ route('profile.rating.store', $users) }}">
                     {{ csrf_field() }}
-                    Lead time: <input type="integer" name="lead_time" value="{{ old("lead_time") }}">
+                    Lead time:<input   type="range" name="lead_time" value="{{ old("lead_time") }}" min="0" max="5">
                     <br>
-                    Quality: <input type="integer" name="quality" value="{{ old("quality") }}">
+                    Quality: <input   type="range" name="quality" value="{{ old("quality") }}" min="0" max="5">
                     <br>
-                    Final result: <input type="integer" name="final_result" value="{{ old("final_result") }}">
+                    Final result: <input   type="range" name="final_result" value="{{ old("final_result") }}" min="0" max="5">
                     <br>
                     Additional information <input type="text" name="additional_information" value="{{ old("additional_information") }}">
                     <br>

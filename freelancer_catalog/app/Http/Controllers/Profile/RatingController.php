@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Profile;
 
-use App\Assignment;
+
 use App\Offer;
 use App\User;
 use App\Rating;
@@ -16,15 +16,12 @@ class RatingController extends Controller
 
     public function index( )
     {
-        //useless
-        //return view('rating.create');
+
     }
 
     public function create(User $user)
     {
-        //$offers = User::all()->where('$user_id','=',$users->id);
-        //return view('profile.rating.create', [$users->id])->withOffers( $offers )->withUsers($users);
-        //echo URL::current();
+
         $url = url()->current();
         $users=User::find(substr($url, -15,1));
         $users = User::all()->where('id','=',$users->id)->first();
@@ -41,11 +38,15 @@ class RatingController extends Controller
      */
     public function store(Request $request, User $user)
     {
+
+        $this->validate($request, [
+            'additional_information' => 'required'
+        ]);
+
         $url = url()->current();
-        //$users=User::all()->find(substr($url, -8,1));
 
         $id_u=substr($url, -8,1);
-        echo $id_u;
+
         $rating = new Rating();
         $rating->lead_time = $request->lead_time;
         $rating->quality = $request->quality;
@@ -56,51 +57,9 @@ class RatingController extends Controller
         //$user->ratings()->
         $rating->save();
 
-        return redirect()->route('profile.index', [$rating, $user]);
+        $users=User::all()->where('id','=',$id_u)->first();
+
+        return redirect()->route('profile.show', [$users]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

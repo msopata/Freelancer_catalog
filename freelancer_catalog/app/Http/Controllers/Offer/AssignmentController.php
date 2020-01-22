@@ -69,7 +69,7 @@ class AssignmentController extends Controller
     {
         $assignment->delete();
 
-        return redirect()->route('profile.index', [$offer,$assignment]);
+        return redirect()->route('profile.show', [$offer,$assignment]);
     }
 
 

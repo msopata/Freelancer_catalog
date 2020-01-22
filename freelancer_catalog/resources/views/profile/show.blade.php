@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <style>
         .container{
             display: flex;
@@ -43,12 +44,9 @@
             <div class="panel-body"><br>
                 <h3>Ratings</h3>
                 <br>
-                <a href="{{route("profile.rating.create",$users)}}" class="btn btn-primary">Add new rate +</a>
-                <br>
+
                 <table class="table table-striped">
                     <tr>
-                        <th></th>
-                        <th>Rating user</th>
                         <th>Lead time</th>
                         <th>Quality</th>
                         <th>Final result</th>
@@ -56,14 +54,15 @@
                     </tr>
                     @foreach( $ratings as $rating )
                         <tr>
-                            <th></th>
-                            <th>{{$rating->rating_id}}</th>
                             <th>{{$rating->lead_time}}</th>
                             <th>{{$rating->quality}}</th>
                             <th>{{$rating->final_result}}</th>
                             <th>{{$rating->additional_information}}</th>
                         </tr>
                     @endforeach
+
+                    <a href="{{route("profile.rating.create",$users)}}" class="btn btn-primary">Add new rate +</a>
+
                 </table>
             </div>
         </div>
